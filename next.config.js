@@ -23,7 +23,7 @@ const config = withSentryConfig(
   coreConfig,
   {
     silent: true,
-    org: "JuviDev",
+    org: "juvidev",
     project: "t3-gallery",
   },
   {
