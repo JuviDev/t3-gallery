@@ -5,13 +5,9 @@
 await import("./src/env.js");
 
 /** @type {import("next").NextConfig} */
-const config = {
+const coreConfig = {
   images: {
-    remotePatterns: [
-      {
-        hostname: "utfs.io",
-      },
-    ],
+    remotePatterns: [{ hostname: "utfs.io" }],
   },
   typescript: {
     ignoreBuildErrors: true,
@@ -20,5 +16,24 @@ const config = {
     ignoreDuringBuilds: true,
   },
 };
+
+import { withSentryConfig } from "@sentry/nextjs";
+
+const config = withSentryConfig(
+  coreConfig,
+  {
+    silent: true,
+    org: "t3gg",
+    project: "t3-gallery-video",
+  },
+  {
+    widenClientFileUpload: true,
+    transpileClientSDK: true,
+    tunnelRoute: "/monitoring",
+    hideSourceMaps: true,
+    disableLogger: true,
+    automaticVercelMonitors: true,
+  },
+);
 
 export default config;
