@@ -23,8 +23,8 @@ const config = withSentryConfig(
   coreConfig,
   {
     silent: true,
-    org: "t3gg",
-    project: "t3-gallery-video",
+    org: "JuviDev",
+    project: "t3-gallery",
   },
   {
     widenClientFileUpload: true,
